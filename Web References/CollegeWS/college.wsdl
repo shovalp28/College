@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetSessionId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="slg_cust_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="User_No" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sql_local_ip" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_Sms_msg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sesid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cell_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_Sms_msgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Send_Sms_msgResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentMobileById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentMobileByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStudentMobileByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StudentIdNumberExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StudentIdNumberExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StudentIdNumberExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLecturerMobileById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLecturerMobileByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLecturerMobileByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LecturerIdNumberExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LecturerIdNumberExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LecturerIdNumberExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCollegeLogo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCollegeLogoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCollegeLogoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidIdNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidIdNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidIdNumberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStudentsNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsTimeTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsTimeTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStudentsTimeTableResult" type="tns:ArrayOfStudentLessons" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStudentLessons">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StudentLessons" nillable="true" type="tns:StudentLessons" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StudentLessons">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="lessonDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonDayInWeek" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonSubject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonLecturerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonRem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonRoom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonBranchName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLecturerName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLecturerNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLecturerNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLecturerTimeTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLecturerTimeTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLecturerTimeTableResult" type="tns:ArrayOfLecturerLessons" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLecturerLessons">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LecturerLessons" nillable="true" type="tns:LecturerLessons" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LecturerLessons">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="lessonDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonDayInWeek" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonSubject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonRem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonRoom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonBranchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lessonCourseNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="lessonNo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStudentsInLesson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CourseNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lessonNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lessonDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsInLessonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStudentsInLessonResult" type="tns:ArrayOfStudentInLesson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStudentInLesson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StudentInLesson" nillable="true" type="tns:StudentInLesson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StudentInLesson">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="studentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="studentMobile" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="healthStatement" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Attended" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveStudentAttend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="courseNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lessonNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveStudentAttendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveStudentAttendResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelStudentAttend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="courseNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lessonNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelStudentAttendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelStudentAttendResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveStudentHealthStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="statmentDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveStudentHealthStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveStudentHealthStatementResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StudentHasHealthStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="statmentDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StudentHasHealthStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StudentHasHealthStatementResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLecturerHealthStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="statmentDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLecturerHealthStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveLecturerHealthStatementResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LecturerHasHealthStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="statmentDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LecturerHasHealthStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LecturerHasHealthStatementResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfStudentLessons" nillable="true" type="tns:ArrayOfStudentLessons" />
+      <s:element name="ArrayOfLecturerLessons" nillable="true" type="tns:ArrayOfLecturerLessons" />
+      <s:element name="ArrayOfStudentInLesson" nillable="true" type="tns:ArrayOfStudentInLesson" />
+      <s:element name="long" type="s:long" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSessionIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionId" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Send_Sms_msgSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_Sms_msg" />
+  </wsdl:message>
+  <wsdl:message name="Send_Sms_msgSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_Sms_msgResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentMobileByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStudentMobileById" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentMobileByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStudentMobileByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="StudentIdNumberExistSoapIn">
+    <wsdl:part name="parameters" element="tns:StudentIdNumberExist" />
+  </wsdl:message>
+  <wsdl:message name="StudentIdNumberExistSoapOut">
+    <wsdl:part name="parameters" element="tns:StudentIdNumberExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerMobileByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLecturerMobileById" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerMobileByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLecturerMobileByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="LecturerIdNumberExistSoapIn">
+    <wsdl:part name="parameters" element="tns:LecturerIdNumberExist" />
+  </wsdl:message>
+  <wsdl:message name="LecturerIdNumberExistSoapOut">
+    <wsdl:part name="parameters" element="tns:LecturerIdNumberExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCollegeLogoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCollegeLogo" />
+  </wsdl:message>
+  <wsdl:message name="GetCollegeLogoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCollegeLogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidIdNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidIdNumber" />
+  </wsdl:message>
+  <wsdl:message name="ValidIdNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidIdNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStudentsName" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStudentsNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsTimeTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStudentsTimeTable" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsTimeTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStudentsTimeTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLecturerName" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLecturerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerTimeTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLecturerTimeTable" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerTimeTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLecturerTimeTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsInLessonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStudentsInLesson" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsInLessonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStudentsInLessonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentAttendSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveStudentAttend" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentAttendSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveStudentAttendResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelStudentAttendSoapIn">
+    <wsdl:part name="parameters" element="tns:DelStudentAttend" />
+  </wsdl:message>
+  <wsdl:message name="DelStudentAttendSoapOut">
+    <wsdl:part name="parameters" element="tns:DelStudentAttendResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentHealthStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveStudentHealthStatement" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentHealthStatementSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveStudentHealthStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="StudentHasHealthStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:StudentHasHealthStatement" />
+  </wsdl:message>
+  <wsdl:message name="StudentHasHealthStatementSoapOut">
+    <wsdl:part name="parameters" element="tns:StudentHasHealthStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveLecturerHealthStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveLecturerHealthStatement" />
+  </wsdl:message>
+  <wsdl:message name="SaveLecturerHealthStatementSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveLecturerHealthStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="LecturerHasHealthStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:LecturerHasHealthStatement" />
+  </wsdl:message>
+  <wsdl:message name="LecturerHasHealthStatementSoapOut">
+    <wsdl:part name="parameters" element="tns:LecturerHasHealthStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdHttpGetIn">
+    <wsdl:part name="slg_cust_id" type="s:string" />
+    <wsdl:part name="AppID" type="s:string" />
+    <wsdl:part name="Pwd" type="s:string" />
+    <wsdl:part name="User_No" type="s:string" />
+    <wsdl:part name="Sql_local_ip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Send_Sms_msgHttpGetIn">
+    <wsdl:part name="Sesid" type="s:string" />
+    <wsdl:part name="Cell_no" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Send_Sms_msgHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentMobileByIdHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentMobileByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="StudentIdNumberExistHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StudentIdNumberExistHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerMobileByIdHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerMobileByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LecturerIdNumberExistHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LecturerIdNumberExistHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetCollegeLogoHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCollegeLogoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidIdNumberHttpGetIn">
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidIdNumberHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsNameHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsTimeTableHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="toDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsTimeTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfStudentLessons" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerNameHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerTimeTableHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="toDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerTimeTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLecturerLessons" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsInLessonHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="CourseNo" type="s:string" />
+    <wsdl:part name="lessonNo" type="s:string" />
+    <wsdl:part name="lessonDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsInLessonHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfStudentInLesson" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentAttendHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="courseNo" type="s:string" />
+    <wsdl:part name="lessonNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentAttendHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DelStudentAttendHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="courseNo" type="s:string" />
+    <wsdl:part name="lessonNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelStudentAttendHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentHealthStatementHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentHealthStatementHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="StudentHasHealthStatementHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StudentHasHealthStatementHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveLecturerHealthStatementHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveLecturerHealthStatementHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="LecturerHasHealthStatementHttpGetIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LecturerHasHealthStatementHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdHttpPostIn">
+    <wsdl:part name="slg_cust_id" type="s:string" />
+    <wsdl:part name="AppID" type="s:string" />
+    <wsdl:part name="Pwd" type="s:string" />
+    <wsdl:part name="User_No" type="s:string" />
+    <wsdl:part name="Sql_local_ip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Send_Sms_msgHttpPostIn">
+    <wsdl:part name="Sesid" type="s:string" />
+    <wsdl:part name="Cell_no" type="s:string" />
+    <wsdl:part name="Msg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Send_Sms_msgHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentMobileByIdHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentMobileByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="StudentIdNumberExistHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StudentIdNumberExistHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerMobileByIdHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerMobileByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LecturerIdNumberExistHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LecturerIdNumberExistHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetCollegeLogoHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCollegeLogoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidIdNumberHttpPostIn">
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidIdNumberHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsNameHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsTimeTableHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="toDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsTimeTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfStudentLessons" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerNameHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerTimeTableHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="toDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLecturerTimeTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLecturerLessons" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsInLessonHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="CourseNo" type="s:string" />
+    <wsdl:part name="lessonNo" type="s:string" />
+    <wsdl:part name="lessonDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsInLessonHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfStudentInLesson" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentAttendHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="courseNo" type="s:string" />
+    <wsdl:part name="lessonNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentAttendHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DelStudentAttendHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="courseNo" type="s:string" />
+    <wsdl:part name="lessonNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelStudentAttendHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentHealthStatementHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveStudentHealthStatementHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="StudentHasHealthStatementHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StudentHasHealthStatementHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveLecturerHealthStatementHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveLecturerHealthStatementHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="LecturerHasHealthStatementHttpPostIn">
+    <wsdl:part name="sesId" type="s:string" />
+    <wsdl:part name="idNumber" type="s:string" />
+    <wsdl:part name="statmentDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LecturerHasHealthStatementHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="CollegeSoap">
+    <wsdl:operation name="GetSessionId">
+      <wsdl:input message="tns:GetSessionIdSoapIn" />
+      <wsdl:output message="tns:GetSessionIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <wsdl:input message="tns:Send_Sms_msgSoapIn" />
+      <wsdl:output message="tns:Send_Sms_msgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <wsdl:input message="tns:GetStudentMobileByIdSoapIn" />
+      <wsdl:output message="tns:GetStudentMobileByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <wsdl:input message="tns:StudentIdNumberExistSoapIn" />
+      <wsdl:output message="tns:StudentIdNumberExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <wsdl:input message="tns:GetLecturerMobileByIdSoapIn" />
+      <wsdl:output message="tns:GetLecturerMobileByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <wsdl:input message="tns:LecturerIdNumberExistSoapIn" />
+      <wsdl:output message="tns:LecturerIdNumberExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <wsdl:input message="tns:GetCollegeLogoSoapIn" />
+      <wsdl:output message="tns:GetCollegeLogoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <wsdl:input message="tns:ValidIdNumberSoapIn" />
+      <wsdl:output message="tns:ValidIdNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <wsdl:input message="tns:GetStudentsNameSoapIn" />
+      <wsdl:output message="tns:GetStudentsNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <wsdl:input message="tns:GetStudentsTimeTableSoapIn" />
+      <wsdl:output message="tns:GetStudentsTimeTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <wsdl:input message="tns:GetLecturerNameSoapIn" />
+      <wsdl:output message="tns:GetLecturerNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <wsdl:input message="tns:GetLecturerTimeTableSoapIn" />
+      <wsdl:output message="tns:GetLecturerTimeTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <wsdl:input message="tns:GetStudentsInLessonSoapIn" />
+      <wsdl:output message="tns:GetStudentsInLessonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <wsdl:input message="tns:SaveStudentAttendSoapIn" />
+      <wsdl:output message="tns:SaveStudentAttendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <wsdl:input message="tns:DelStudentAttendSoapIn" />
+      <wsdl:output message="tns:DelStudentAttendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <wsdl:input message="tns:SaveStudentHealthStatementSoapIn" />
+      <wsdl:output message="tns:SaveStudentHealthStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <wsdl:input message="tns:StudentHasHealthStatementSoapIn" />
+      <wsdl:output message="tns:StudentHasHealthStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <wsdl:input message="tns:SaveLecturerHealthStatementSoapIn" />
+      <wsdl:output message="tns:SaveLecturerHealthStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <wsdl:input message="tns:LecturerHasHealthStatementSoapIn" />
+      <wsdl:output message="tns:LecturerHasHealthStatementSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CollegeHttpGet">
+    <wsdl:operation name="GetSessionId">
+      <wsdl:input message="tns:GetSessionIdHttpGetIn" />
+      <wsdl:output message="tns:GetSessionIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <wsdl:input message="tns:Send_Sms_msgHttpGetIn" />
+      <wsdl:output message="tns:Send_Sms_msgHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <wsdl:input message="tns:GetStudentMobileByIdHttpGetIn" />
+      <wsdl:output message="tns:GetStudentMobileByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <wsdl:input message="tns:StudentIdNumberExistHttpGetIn" />
+      <wsdl:output message="tns:StudentIdNumberExistHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <wsdl:input message="tns:GetLecturerMobileByIdHttpGetIn" />
+      <wsdl:output message="tns:GetLecturerMobileByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <wsdl:input message="tns:LecturerIdNumberExistHttpGetIn" />
+      <wsdl:output message="tns:LecturerIdNumberExistHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <wsdl:input message="tns:GetCollegeLogoHttpGetIn" />
+      <wsdl:output message="tns:GetCollegeLogoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <wsdl:input message="tns:ValidIdNumberHttpGetIn" />
+      <wsdl:output message="tns:ValidIdNumberHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <wsdl:input message="tns:GetStudentsNameHttpGetIn" />
+      <wsdl:output message="tns:GetStudentsNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <wsdl:input message="tns:GetStudentsTimeTableHttpGetIn" />
+      <wsdl:output message="tns:GetStudentsTimeTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <wsdl:input message="tns:GetLecturerNameHttpGetIn" />
+      <wsdl:output message="tns:GetLecturerNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <wsdl:input message="tns:GetLecturerTimeTableHttpGetIn" />
+      <wsdl:output message="tns:GetLecturerTimeTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <wsdl:input message="tns:GetStudentsInLessonHttpGetIn" />
+      <wsdl:output message="tns:GetStudentsInLessonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <wsdl:input message="tns:SaveStudentAttendHttpGetIn" />
+      <wsdl:output message="tns:SaveStudentAttendHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <wsdl:input message="tns:DelStudentAttendHttpGetIn" />
+      <wsdl:output message="tns:DelStudentAttendHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <wsdl:input message="tns:SaveStudentHealthStatementHttpGetIn" />
+      <wsdl:output message="tns:SaveStudentHealthStatementHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <wsdl:input message="tns:StudentHasHealthStatementHttpGetIn" />
+      <wsdl:output message="tns:StudentHasHealthStatementHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <wsdl:input message="tns:SaveLecturerHealthStatementHttpGetIn" />
+      <wsdl:output message="tns:SaveLecturerHealthStatementHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <wsdl:input message="tns:LecturerHasHealthStatementHttpGetIn" />
+      <wsdl:output message="tns:LecturerHasHealthStatementHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CollegeHttpPost">
+    <wsdl:operation name="GetSessionId">
+      <wsdl:input message="tns:GetSessionIdHttpPostIn" />
+      <wsdl:output message="tns:GetSessionIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <wsdl:input message="tns:Send_Sms_msgHttpPostIn" />
+      <wsdl:output message="tns:Send_Sms_msgHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <wsdl:input message="tns:GetStudentMobileByIdHttpPostIn" />
+      <wsdl:output message="tns:GetStudentMobileByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <wsdl:input message="tns:StudentIdNumberExistHttpPostIn" />
+      <wsdl:output message="tns:StudentIdNumberExistHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <wsdl:input message="tns:GetLecturerMobileByIdHttpPostIn" />
+      <wsdl:output message="tns:GetLecturerMobileByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <wsdl:input message="tns:LecturerIdNumberExistHttpPostIn" />
+      <wsdl:output message="tns:LecturerIdNumberExistHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <wsdl:input message="tns:GetCollegeLogoHttpPostIn" />
+      <wsdl:output message="tns:GetCollegeLogoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <wsdl:input message="tns:ValidIdNumberHttpPostIn" />
+      <wsdl:output message="tns:ValidIdNumberHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <wsdl:input message="tns:GetStudentsNameHttpPostIn" />
+      <wsdl:output message="tns:GetStudentsNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <wsdl:input message="tns:GetStudentsTimeTableHttpPostIn" />
+      <wsdl:output message="tns:GetStudentsTimeTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <wsdl:input message="tns:GetLecturerNameHttpPostIn" />
+      <wsdl:output message="tns:GetLecturerNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <wsdl:input message="tns:GetLecturerTimeTableHttpPostIn" />
+      <wsdl:output message="tns:GetLecturerTimeTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <wsdl:input message="tns:GetStudentsInLessonHttpPostIn" />
+      <wsdl:output message="tns:GetStudentsInLessonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <wsdl:input message="tns:SaveStudentAttendHttpPostIn" />
+      <wsdl:output message="tns:SaveStudentAttendHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <wsdl:input message="tns:DelStudentAttendHttpPostIn" />
+      <wsdl:output message="tns:DelStudentAttendHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <wsdl:input message="tns:SaveStudentHealthStatementHttpPostIn" />
+      <wsdl:output message="tns:SaveStudentHealthStatementHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <wsdl:input message="tns:StudentHasHealthStatementHttpPostIn" />
+      <wsdl:output message="tns:StudentHasHealthStatementHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <wsdl:input message="tns:SaveLecturerHealthStatementHttpPostIn" />
+      <wsdl:output message="tns:SaveLecturerHealthStatementHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <wsdl:input message="tns:LecturerHasHealthStatementHttpPostIn" />
+      <wsdl:output message="tns:LecturerHasHealthStatementHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CollegeSoap" type="tns:CollegeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionId">
+      <soap:operation soapAction="http://tempuri.org/GetSessionId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <soap:operation soapAction="http://tempuri.org/Send_Sms_msg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <soap:operation soapAction="http://tempuri.org/GetStudentMobileById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <soap:operation soapAction="http://tempuri.org/StudentIdNumberExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <soap:operation soapAction="http://tempuri.org/GetLecturerMobileById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <soap:operation soapAction="http://tempuri.org/LecturerIdNumberExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <soap:operation soapAction="http://tempuri.org/GetCollegeLogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <soap:operation soapAction="http://tempuri.org/ValidIdNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <soap:operation soapAction="http://tempuri.org/GetStudentsName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <soap:operation soapAction="http://tempuri.org/GetStudentsTimeTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <soap:operation soapAction="http://tempuri.org/GetLecturerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <soap:operation soapAction="http://tempuri.org/GetLecturerTimeTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <soap:operation soapAction="http://tempuri.org/GetStudentsInLesson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <soap:operation soapAction="http://tempuri.org/SaveStudentAttend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <soap:operation soapAction="http://tempuri.org/DelStudentAttend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <soap:operation soapAction="http://tempuri.org/SaveStudentHealthStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <soap:operation soapAction="http://tempuri.org/StudentHasHealthStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <soap:operation soapAction="http://tempuri.org/SaveLecturerHealthStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <soap:operation soapAction="http://tempuri.org/LecturerHasHealthStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CollegeSoap12" type="tns:CollegeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionId">
+      <soap12:operation soapAction="http://tempuri.org/GetSessionId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <soap12:operation soapAction="http://tempuri.org/Send_Sms_msg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <soap12:operation soapAction="http://tempuri.org/GetStudentMobileById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <soap12:operation soapAction="http://tempuri.org/StudentIdNumberExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <soap12:operation soapAction="http://tempuri.org/GetLecturerMobileById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <soap12:operation soapAction="http://tempuri.org/LecturerIdNumberExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <soap12:operation soapAction="http://tempuri.org/GetCollegeLogo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <soap12:operation soapAction="http://tempuri.org/ValidIdNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <soap12:operation soapAction="http://tempuri.org/GetStudentsName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <soap12:operation soapAction="http://tempuri.org/GetStudentsTimeTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <soap12:operation soapAction="http://tempuri.org/GetLecturerName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <soap12:operation soapAction="http://tempuri.org/GetLecturerTimeTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <soap12:operation soapAction="http://tempuri.org/GetStudentsInLesson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <soap12:operation soapAction="http://tempuri.org/SaveStudentAttend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <soap12:operation soapAction="http://tempuri.org/DelStudentAttend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <soap12:operation soapAction="http://tempuri.org/SaveStudentHealthStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <soap12:operation soapAction="http://tempuri.org/StudentHasHealthStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <soap12:operation soapAction="http://tempuri.org/SaveLecturerHealthStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <soap12:operation soapAction="http://tempuri.org/LecturerHasHealthStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CollegeHttpGet" type="tns:CollegeHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetSessionId">
+      <http:operation location="/GetSessionId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <http:operation location="/Send_Sms_msg" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <http:operation location="/GetStudentMobileById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <http:operation location="/StudentIdNumberExist" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <http:operation location="/GetLecturerMobileById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <http:operation location="/LecturerIdNumberExist" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <http:operation location="/GetCollegeLogo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <http:operation location="/ValidIdNumber" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <http:operation location="/GetStudentsName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <http:operation location="/GetStudentsTimeTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <http:operation location="/GetLecturerName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <http:operation location="/GetLecturerTimeTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <http:operation location="/GetStudentsInLesson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <http:operation location="/SaveStudentAttend" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <http:operation location="/DelStudentAttend" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <http:operation location="/SaveStudentHealthStatement" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <http:operation location="/StudentHasHealthStatement" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <http:operation location="/SaveLecturerHealthStatement" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <http:operation location="/LecturerHasHealthStatement" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CollegeHttpPost" type="tns:CollegeHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetSessionId">
+      <http:operation location="/GetSessionId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Sms_msg">
+      <http:operation location="/Send_Sms_msg" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentMobileById">
+      <http:operation location="/GetStudentMobileById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentIdNumberExist">
+      <http:operation location="/StudentIdNumberExist" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerMobileById">
+      <http:operation location="/GetLecturerMobileById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerIdNumberExist">
+      <http:operation location="/LecturerIdNumberExist" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeLogo">
+      <http:operation location="/GetCollegeLogo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidIdNumber">
+      <http:operation location="/ValidIdNumber" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsName">
+      <http:operation location="/GetStudentsName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsTimeTable">
+      <http:operation location="/GetStudentsTimeTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerName">
+      <http:operation location="/GetLecturerName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLecturerTimeTable">
+      <http:operation location="/GetLecturerTimeTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsInLesson">
+      <http:operation location="/GetStudentsInLesson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentAttend">
+      <http:operation location="/SaveStudentAttend" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelStudentAttend">
+      <http:operation location="/DelStudentAttend" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStudentHealthStatement">
+      <http:operation location="/SaveStudentHealthStatement" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentHasHealthStatement">
+      <http:operation location="/StudentHasHealthStatement" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLecturerHealthStatement">
+      <http:operation location="/SaveLecturerHealthStatement" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LecturerHasHealthStatement">
+      <http:operation location="/LecturerHasHealthStatement" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="College">
+    <wsdl:port name="CollegeSoap" binding="tns:CollegeSoap">
+      <soap:address location="https://www.shelegcrm.com/bo_ws/webservices/college.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CollegeSoap12" binding="tns:CollegeSoap12">
+      <soap12:address location="https://www.shelegcrm.com/bo_ws/webservices/college.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CollegeHttpGet" binding="tns:CollegeHttpGet">
+      <http:address location="https://www.shelegcrm.com/bo_ws/webservices/college.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CollegeHttpPost" binding="tns:CollegeHttpPost">
+      <http:address location="https://www.shelegcrm.com/bo_ws/webservices/college.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,223 @@
+﻿
+@model  College.Models.Lecturer
+
+
+@{
+    //ViewBag.Title = "SoldierListWithFilters";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+    </style>
+
+
+</head>
+
+
+<body id="bdySoldiers" style="background-color:aliceblue" dir="rtl">
+
+    <br />
+
+    <div style="text-align: center">
+        <img src="@Model.logoLink" style="height: 150px; padding: 10px;" />
+    </div>
+
+
+    <div class="container" align="right">
+
+        <h2>שיעורים של המרצה @Model.name</h2>
+        <span style="float: right; width: 50%;">
+
+            <div class='well'>
+                @*<div class="row">*@
+                <div class='block_inline' ca>
+
+
+                    <div> מתאריך </div>
+                    @Html.TextBoxFor(m => m.fromDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.fromDate)
+                    @Html.ValidationMessageFor(m => m.fromDate)
+
+
+                    <div class='block_inline'>
+                        <div>עד תאריך </div>
+                        @Html.TextBoxFor(m => m.toDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.toDate)
+                        @Html.ValidationMessageFor(m => m.toDate)
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                </div>
+                <br />
+
+                <input type="button" style="float:right" class="btn btn-primary" value="הצג  " id="btnSearch" />
+                <input type="button" style="float:right" class="btn btn-primary" value="הצהרת בריאות  " id="btnHealthStatment" />
+            </div>
+
+            <br />
+
+
+            <br />
+
+
+            <br />
+        </span>
+
+
+        <div id="bdyStudentLessonTable" class="container" align="right">
+            <br />
+            <br />
+
+            @{if (@Model.lecturerLessons != null)
+                {
+                    Html.RenderPartial("_LecturerLessonListPartial");
+                }
+            }
+        </div>
+
+        @*</div>*@
+
+    </div>
+
+
+</body>
+
+
+
+@section scripts
+        {
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <script>
+            $(document).ready(function () {
+
+                $("#fromDate").datepicker({
+                      dateFormat: 'dd/mm/yy'
+                }
+                );
+                $("#toDate").datepicker({
+                      dateFormat: 'dd/mm/yy'
+                });
+
+
+            $("#btnHealthStatment").click(function () {
+
+
+               var id =  @Model.id;
+
+                @*window.location.href = "@Url.RouteUrl(new
+                                                        { Controller = "LecturerTimeTable", Action = "LecturerLessonList" })?"+"id="+id*@
+
+
+                                        $.ajax({
+                                                url: "/LecturerTimeTable/LecturerHealthStatement/" + id,
+                                                type: 'POST',
+                                                success: function (data) {
+
+                                                                    if (data.includes('<!DOCTYPE html>')) {
+                                                                              window.location.href = "@Url.RouteUrl(new
+                                                                                                { Controller = "LecturerTimeTable", Action = "OpenLecturerHealthStatement" })?" +"id="+id
+
+                                                                    }
+
+                                                                }
+
+                                            });
+
+                        }
+                )
+                        $("#btnSearch").click(function() {
+                            //alert("Button clicked");
+                            var id =  @Model.id;
+                            var fromDate = $("#fromDate").val();
+                            var toDate = $("#toDate").val();
+                            if (!checkDate(fromDate)) return false;
+                            if (!checkDate(toDate)) return false;
+
+                            var fromDateParts = fromDate.split("/");
+
+
+                            var fromDateSt = new Date(+fromDateParts[2], fromDateParts[1] - 1, +fromDateParts[0]);
+
+                            var toDateParts = toDate.split("/");
+
+                            var toDateSt =  new Date(+toDateParts[2], toDateParts[1] - 1, +toDateParts[0]);
+
+                            if (fromDateSt > toDateSt)
+                            {
+                                alert("ערך שדה 'מתאריך' חייב להיות קטן יותר מערך שדה 'עד תאריך'");
+                                    return false;
+                            }
+                            //else {
+                                        //    alert("Date Two is greater than Date One.");
+                                        //}
+
+                            $.get('@Url.Action("LecturerLessonListPartial", "LecturerTimeTable")',
+                                {fromDate,toDate, id},
+                                function (data) {
+                                    $("#bdyStudentLessonTable").html(data);
+                                });
+                         });
+            });
+  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.
+
+
+            function GetStudentsInLesson(button) {
+            //Determine the reference of the Row using the Button.
+            var row = $(button).closest("TR");
+                var lessonDate = $("TD", row).eq(2).html();
+                var courseNo = $("TD", row).eq(0).html();
+                var lessonNo  = $("TD", row).eq(1).html();
+
+                 window.location.href = "@Url.RouteUrl(new{ Controller = "LecturerTimeTable", Action = "OpenStudentInLesson" })?" + "courseNo=" + courseNo+"&lessonNo="+lessonNo+"&lessonDate="+lessonDate
+            }
+
+
+  function checkDate(field)
+  {
+    var allowBlank = true;
+    var minYear = 1902;
+    var maxYear = (new Date()).getFullYear();
+
+    var errorMsg = "";
+
+    // regular expression to match required date format
+    re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+
+    if(field.value != '') {
+      if(regs = field.match(re)) {
+        if(regs[1] < 1 || regs[1] > 31) {
+          errorMsg = "Invalid value for day: " + regs[1];
+        } else if(regs[2] < 1 || regs[2] > 12) {
+          errorMsg = "Invalid value for month: " + regs[2];
+        } else if(regs[3] < minYear || regs[3] > maxYear) {
+          errorMsg = "Invalid value for year: " + regs[3] + " - must be between " + minYear + " and " + maxYear;
+        }
+      } else {
+        errorMsg = "שדות תאריך אמורים להיות במבנה של dd/mm/yyyy: ערך שגוי " + field;
+      }
+    } else if(!allowBlank) {
+      errorMsg = "Empty date not allowed!";
+    }
+
+    if(errorMsg != "") {
+      alert(errorMsg);
+      field.focus();
+      return false;
+    }
+
+    return true;
+  }
+    </script>
+
+}
+
+

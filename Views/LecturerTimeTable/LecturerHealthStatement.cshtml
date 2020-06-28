@@ -1,0 +1,141 @@
+﻿
+@model  College.Models.Lecturer
+
+
+@{
+    //ViewBag.Title = "SoldierListWithFilters";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+    </style>
+
+
+</head>
+
+
+<body id="bdySoldiers" style="background-color:aliceblue" dir="rtl">
+
+    <br />
+
+    <div style="text-align: center">
+        <img src="@Model.logoLink" style="height: 150px; padding: 10px;" />
+    </div>
+
+
+    <div class="container" align="right">
+
+        <h1>מסך הצהרת בריאות יומי עבור מרצה @Model.name</h1>
+        <span style="float: right; width: 50%;">
+
+            <div class='well'>
+                <br />
+                <br />
+                @*<div class='block_inline' ca>*@
+                <p style='font-size: 20px;text-align:justify;' dir="rtl">
+                    אני מצהיר\ה כי ערכתי בדיקה למדידת חום הגוף, בה נמצא כי חום גופי אינו עולה על 38 מעלות צלזיוס. אני מצהיר\ה כי איני משתעל\\ת וכן אין לי קשיים בנשימה( למעט שיעול הנובע ממצב כרוני כגון אסטמה או אלרגיה אחרת).
+
+                </p>
+                @*</div>*@
+
+
+                <br />
+
+
+                @*@*<input type="checkbox" class="custom-control-input" id="approveHealthStatmentId" checked="">*@
+                @*<label class="custom-control-label" for="approveHealthStatmentId">מאשר</label>*@
+
+                <div class="form-group">
+                        @*<input type="checkbox" class="custom-control-input" id="approveHealthStatmentId" checked="" autocomplete="off">
+                        <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>*@
+
+                        <input type="checkbox" id="approveHealthStatmentId" name="vehicle1" onclick="check(this)">
+                        <label for="vehicle1"> שמור</label><br>
+                </div>
+
+
+                @*<input type="checkbox" id="approveHealthStatmentId" name="vehicle1" value="approve">
+        <label style='font-size: 20px;' for="approveHealthStatmentLb"> מאשר</label><br>*@
+                <br />
+                <input type="button" style="float:right" class="btn btn-primary" value="שמור  " id="btnSaveApproveHealthStatment" />
+            </div>
+
+            <br />
+
+
+            <br />
+
+
+            <br />
+        </span>
+
+
+
+        @*</div>*@
+
+    </div>
+
+
+</body>
+
+
+
+@section scripts
+        {
+
+
+    <script>
+        $(document).ready(function () {
+
+            var elements = document.getElementsByTagName("INPUT");
+                for (var inp of elements) {
+                    if (inp.type === "checkbox")
+                        inp.checked = false;
+                }
+
+            $("#btnSaveApproveHealthStatment").click(function () {
+
+
+                var id =  @Model.id;
+                var approveHealthStatmentId = $("#approveHealthStatmentId").val();
+
+                if (!document.getElementById('approveHealthStatmentId').checked) 
+                    MsgHealthStatementNotApprove()
+                else
+
+
+                    $.ajax({
+                        url: '/LecturerTimeTable/SaveApproveHealthStatment',
+                        data: { id: id },
+                        type: 'POST',
+                        success: function (data) {
+
+                            if (data.includes('<!DOCTYPE html>')) {
+                                window.location.href = "@Url.RouteUrl(new{ Controller = "LecturerTimeTable", Action = "LecturerLessonList" })?" + "id=" + id
+
+                            }
+
+                        }
+
+                    });
+
+            });
+
+
+
+            function MsgHealthStatementNotApprove() {
+                alert(".לא ניתן לשמור הצהרת בריאות ללא סימון הצ'קבוקס מאשר")
+            }
+        });
+
+        //    function check(obj){
+        //    if(obj.checked){
+        //        alert(obj.value);
+        //    }
+        //}
+    </script>
+
+}
+
+

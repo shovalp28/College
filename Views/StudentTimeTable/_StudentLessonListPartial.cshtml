@@ -1,0 +1,54 @@
+﻿@model  College.Models.Student
+
+<br />
+<br />
+
+@{if (@Model.StudentLessons != null)
+
+    {
+        <table id="tblStudentLessons" class="table table-bordered  table-hover dataTables_info dataTables_paginateד">
+
+            <thead>
+                <tr class="table-primary" style="background-color: #DCDCDC;">
+                    <th>תאריך השעור</th>
+                    <th>יום השעור </th>
+                    <th>שעת התחלה</th>
+                    <th>שעת סיום</th>
+                    <th>נושא השעור</th>
+                    <th>שם המרצה</th>
+                    <th>הערה לשעור</th>
+                    <th>שם הכיתה</th>
+                    <th>שם הסניף</th>
+                </tr>
+            </thead>
+            <div id="tr" class="container" align="right">
+
+
+                @foreach (var lesson in Model.StudentLessons)
+                {
+                    <tr class="table-light">
+                        <td class="cell">@lesson.lessonDate.ToString("dd/MM/yyyy")</td>
+                        <td class="cell">@lesson.lessonDayInWeek</td>
+                        <td class="cell">@lesson.lessonStart</td>
+                        <td class="cell">@lesson.lessonEnd</td>
+                        <td class="cell">@lesson.lessonSubject</td>
+                        <td class="cell">@lesson.lessonLecturerName</td>
+
+                        <td class="cell">@lesson.lessonRem</td>
+                        <td class="cell">@lesson.lessonRoom</td>
+                        <td class="cell">@lesson.lessonBranchName</td>
+                    </tr>
+                }
+
+            </div>
+
+        </table>
+    }
+    else
+    {
+        
+
+    }
+
+}
+

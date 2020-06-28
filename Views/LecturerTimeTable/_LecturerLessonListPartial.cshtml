@@ -1,0 +1,69 @@
+﻿
+@model College.Models.Lecturer
+<br />
+<br />
+
+@{if (@Model.lecturerLessons != null)
+
+    {
+<table id="tblStudentLessons" class="table table-bordered  table-hover dataTables_info dataTables_paginateד">
+
+            <thead>
+                        <tr class="table-primary" style="background-color: #DCDCDC;">
+                    @*<th>מספר קורס</th>
+                    <th>מספר שעור</th>*@
+                    <th>תאריך השעור</th>
+                    <th>יום השעור </th>
+                    <th>שעת התחלה</th>
+                    <th>שעת סיום</th>
+                    <th>נושא השעור</th>
+                    <th>הערה לשעור</th>
+                    <th>שם הכיתה</th>
+                    <th>שם הסניף</th>
+                    <th>דוח נוכחות</th>
+                </tr>
+            </thead>
+            <div id="tr" class="container" align="right">
+
+
+                @foreach (var lesson in Model.lecturerLessons)
+                {
+                <tr class="table-light">
+
+                    <td class="cell" style="display:none;">@lesson.lessonCourseNo</td>
+                    <td class="cell" style="display:none;">@lesson.lessonNo.ToString()</td>
+
+                    <td class="cell">@lesson.lessonDate.ToString("dd/MM/yyyy")</td>
+                    <td class="cell">@lesson.lessonDayInWeek</td>
+                    <td class="cell">@lesson.lessonStart</td>
+                    <td class="cell">@lesson.lessonEnd</td>
+                    <td class="cell">@lesson.lessonSubject</td>
+
+                    <td class="cell">@lesson.lessonRem</td>
+                    <td class="cell">@lesson.lessonRoom</td>
+
+                    <td class="cell">@lesson.lessonBranchName</td>
+                    <td class="cell">
+                        <button type='submit'
+                                onclick='GetStudentsInLesson(this);'
+                                class='btn btn-primary'
+                                data-id='יעח'>
+                            דוח נוכחות
+
+                        </button>
+                    </td>
+                </tr>
+                }
+
+            </div>
+
+        </table>
+    }
+    else
+    {
+        
+
+    }
+
+}
+

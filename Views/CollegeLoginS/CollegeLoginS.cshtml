@@ -1,0 +1,113 @@
+﻿
+
+@model College.Models.LogInScreenData
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title style="text-align:center">
+        מסך כניסה סטודנטים
+    </title>
+    @*<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- BS JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <!-- Have fun using Bootstrap JS -->
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#prizePopup').modal('show');
+        });
+    </script>*@
+</head>
+
+<body style="background-color:aliceblue" id="CollegeLoginBody">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css' />
+
+    <form method="post" action="./Logint.aspx" id="CollegeLoginForm" dir="rtl" >
+        <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="F1Kmq3kta2CyHNNDiO9s/3/8kaaiSBwIe1hB6hg30tDpQ2EcYiiY9pbge7L/3pQI7Z8HGJFrBUlv2kdHQRxHTB702Q264+tciTapidbNJss=" />
+        </div>
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D47B3A94" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="+6tS40nfAj4t89HxbUMtfDKGkhPERHJkUdYIDhoOUn1QJJQbAKsgIDANsOfe4HRTj93gAAN4QcL54GmndE+AgDf2id4jJGnlkrVKX8/BONQZjOP+kxEW4/lBXu6EPRVlN7UQB+D1yItRSoQRJTfH/X8HOc0O690R2Cvm45pMOI9yANcIwSp57NllHuMUM/va" />
+        </div>
+        <div style="text-align: center">
+            <img src="@Model.logoLink" style="height: 150px; padding: 10px;" />
+        </div>
+        <div class="box" style="text-align:center">
+            <h1 id="h12" style="text-align:center">כניסה למערכת סטודנטים</h1>
+
+
+        <div style="text-align: center">
+            <input name="id"  text-align:center" type="text" id="id" placeholder="תעודת זהות" class="id" />
+            @*<input name="inputVcode" text-align:center" type="text" id="inputVcode" placeholder="קוד אימות" class="inputVcode" />*@
+            <input type="button" class="btn btn-primary" value="כניסה  " id="Btnlogin" />
+        </div>
+
+
+
+
+        </div>
+            <!-- End Box -->
+
+</form>
+</body>
+</html>
+
+
+@section scripts
+        {
+
+    <script>
+
+
+
+        $(document).ready(function () {
+            $("#Btnlogin").click(function () {
+
+                var id = $("#id").val();
+
+                                        $.ajax({
+                                                url: "/CollegeLoginS/BtnloginClicked/" + id,
+                                                type: 'POST',
+                                                success: function (data) {
+  
+                                                                    if (data.includes('<!DOCTYPE html>')) {
+                                                                               MsgCodeSend();
+                                                                              window.location.href = "@Url.RouteUrl(new
+                                                                                                { Controller = "CollegeLoginS", Action = "OpenStudentsValidationPage" })?" +"id="+id
+             
+                                                                    }
+
+                                                                }
+
+                                            });
+
+                                });
+                    });
+
+        function MsgNoId() {
+                alert(". יש לפנות למשרד. תעודת זהות לא מופיעה במערכת")
+                }
+
+                function MsgCodeSend() {
+                    alert("קוד אימות נשלח לנייד")
+
+                }
+
+                function MsgCodeWronge() {
+                    alert("קוד אימות אינו נכון")
+                }
+
+                function MsgNoPhone() {
+                    alert("אין מספר נייד מעודכן . יש לפנות למשרד.")
+                }
+
+
+    </script>
+
+}
